@@ -3,7 +3,7 @@ package ServerPart;
 import com.sun.istack.internal.Nullable;
 
 import java.sql.*;
-
+//
 public class AuthService
 {
     private static Connection connection;

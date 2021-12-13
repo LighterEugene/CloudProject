@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+//
 // класс, отвечающий за работу сервера с клиентом.
 public class ClientHandler
 {
