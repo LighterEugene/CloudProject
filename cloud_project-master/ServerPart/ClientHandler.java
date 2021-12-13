@@ -1,11 +1,12 @@
 package ServerPart;
 
+import src.ServerPart.AuthService;
+import src.ServerPart.Server;
+
 import java.io.*;
 import java.net.Socket;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 // класс, отвечающий за работу сервера с клиентом.
 public class ClientHandler
@@ -13,7 +14,7 @@ public class ClientHandler
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
-    private Server server;
+    private src.ServerPart.Server server;
     private String nick;   // имя папки клиента, соответствующее его логину.
     private Path dir;      // директория , где нахолится папка клиента. Особого смысла нет!!!
 
@@ -106,7 +107,7 @@ public class ClientHandler
                         {
                             e.printStackTrace();
                         }
-                        server.unsubscribe(ClientHandler.this);
+                        server.unsubscribe(src.ServerPart.ClientHandler.this);
                     }
 
                 }
@@ -143,7 +144,7 @@ public class ClientHandler
             {
                 nick = newNick;
                 dir = Files.createDirectories(Paths.get("ServerFiles", nick));
-                server.subscribe(ClientHandler.this);  // клиент вносится в список.
+                server.subscribe(src.ServerPart.ClientHandler.this);  // клиент вносится в список.
                 out.write(2);
             }
         }
